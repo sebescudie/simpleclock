@@ -30,21 +30,26 @@ class Build : NukeBuild
 
     readonly string winX64Rid = "win-x64";
     readonly string packId = "simpleclock";
-    
+    readonly string repoUrl = "https://github.com/sebescudie/simpleclock";
+
     string Version = String.Empty;
 
     AbsolutePath VersionFilePath = RootDirectory / "version.props";
     AbsolutePath VvvvSourcePath = RootDirectory / "simpleclock.vl";
     AbsolutePath VvvvOutputDir = RootDirectory / $"output/simpleclock";
     AbsolutePath ReleasesFolder = RootDirectory / "releases";
-    
-    public static int Main () => Execute<Build>(x => x.Compile);
+
+    // ---------------------------------------------------------------- Secrets
+
+    string githubToken = Environment.GetEnvironmentVariable("SIMPLECLOCK_GITHUB_TOKEN", EnvironmentVariableTarget.User);
+
+    public static int Main() => Execute<Build>(x => x.Compile);
 
     Target Clean => _ => _
         .Before(RetrieveVersion)
         .Executes(() =>
         {
-            
+
         });
 
     Target Restore => _ => _
@@ -60,7 +65,7 @@ class Build : NukeBuild
             {
                 Version = XDocument.Load(VersionFilePath).Descendants("Version").FirstOrDefault()?.Value ?? "0.0.0";
                 Log.Information($"Found version {Version}");
-                
+
             }
             catch
             {
@@ -69,22 +74,40 @@ class Build : NukeBuild
             }
         });
 
+    // Compiles the vvvv app
     Target Compile => _ => _
         .DependsOn(RetrieveVersion)
         .Executes(() =>
         {
+            Log.Information("Compiling vvvv app");
             var build = ProcessTasks.StartProcess(CompilerPath, $"{VvvvSourcePath} --output-type WinExe --rid {winX64Rid}");
             build.WaitForExit();
         });
 
-    Target Velopack => _ => _
+    // Generates a Velopack release
+    Target Pack => _ => _
         .DependsOn(Compile)
         .Executes(() =>
         {
-            var velopack = ProcessTasks.StartProcess("vpk", $"pack --packId {packId} --packTitle simpleclock --packVersion {Version} --packDir {VvvvOutputDir} --outputDir {ReleasesFolder} --mainExe simpleclock.exe --framework net8.0-x64-desktop");
-            velopack.AssertWaitForExit();
-        });
-    
+            // Download the previous release
+            Log.Information("Downloading previous release");
+            var downloadPreviousRelease = ProcessTasks.StartProcess("vpk", $"download github --repoUrl {repoUrl} --token {githubToken}");
+            downloadPreviousRelease.WaitForExit();
 
+            // Pack the current one
+            Log.Information("Packing new release");
+            var pack = ProcessTasks.StartProcess("vpk", $"pack --packId {packId} --packTitle simpleclock --packVersion {Version} --packDir {VvvvOutputDir} --outputDir {ReleasesFolder} --mainExe simpleclock.exe --framework net8.0-x64-desktop");
+            pack.AssertWaitForExit();
+        });
+
+    // Distributes the release
+    Target Distribute => _ => _
+    .DependsOn(Pack)
+    .Executes(() =>
+    {
+        Log.Information("Uploading new release");
+        var uploadRealease = ProcessTasks.StartProcess("vpk", $"upload github --repoUrl {repoUrl} --token {githubToken} --tag {Version}");
+        uploadRealease.WaitForExit();
+    });
 
 }

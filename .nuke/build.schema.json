@@ -26,9 +26,10 @@
       "enum": [
         "Clean",
         "Compile",
+        "Distribute",
+        "Pack",
         "Restore",
-        "RetrieveVersion",
-        "Velopack"
+        "RetrieveVersion"
       ]
     },
     "Verbosity": {

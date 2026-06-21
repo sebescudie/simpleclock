@@ -19,7 +19,7 @@
         </p:Interfaces>
         <Patch Id="NEuKLAiVDxnOgkd35NEugD">
           <Canvas Id="A7hgq5frBiRNvBnSVu4zgF" CanvasType="Group">
-            <Node Bounds="555,351,39,19" Id="IjgTtlxldocMEPmMBeEgNR">
+            <Node Bounds="555,320,39,19" Id="IjgTtlxldocMEPmMBeEgNR">
               <p:NodeReference LastCategoryFullName="Velopack.VelopackApp" LastDependency="Velopack.dll">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <CategoryReference Kind="AssemblyCategory" Name="Velopack" />
@@ -27,7 +27,7 @@
               </p:NodeReference>
               <Pin Id="PuUhIIhg8skQbI2b6VS1KF" Name="Result" Kind="OutputPin" />
             </Node>
-            <Node Bounds="555,420,63,26" Id="VFOBT872qYQNcUczu0x0ib">
+            <Node Bounds="555,670,63,26" Id="VFOBT872qYQNcUczu0x0ib">
               <p:NodeReference LastCategoryFullName="Velopack.VelopackApp" LastDependency="Velopack.dll">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <CategoryReference Kind="AssemblyCategory" Name="VelopackApp" />
@@ -35,6 +35,69 @@
               </p:NodeReference>
               <Pin Id="KewF9jgLyrOPV1V6Dp760b" Name="Input" Kind="StateInputPin" />
               <Pin Id="FugA9L4NMlwLyNgmxQIXbO" Name="Output" Kind="StateOutputPin" />
+            </Node>
+            <Node Bounds="555,390,129,83" Id="Lq5KNcNGvE3L26x5TXeW9c">
+              <p:NodeReference LastCategoryFullName="Velopack.VelopackApp" LastDependency="Velopack.dll">
+                <Choice Kind="RegionFlag" Name="Region (Stateless)" Fixed="true" />
+                <CategoryReference Kind="AssemblyCategory" Name="VelopackApp" />
+                <Choice Kind="OperationCallFlag" Name="OnFirstRun" />
+              </p:NodeReference>
+              <Pin Id="IVgyq1Vd8piQBo47nbiskJ" Name="Input" Kind="StateInputPin" />
+              <Pin Id="LKcqR6Z4HJsO7KXIwth0bZ" Name="Output" Kind="StateOutputPin" />
+              <Pin Id="FMQCMxGDqB9MDAtZvm1ueA" Name="Result" Kind="OutputPin" />
+              <Patch Id="NnbfXb9azXPOUiQau8YNfg" Name="Hook" ManuallySortedPins="true">
+                <Pin Id="RXdradREJ00Ne5Six4X6Fa" Name="Version" Kind="InputPin" />
+                <ControlPoint Id="K4sDvyAbEEWNy4Euetvoem" Bounds="568,398" />
+                <Node Bounds="567,427,105,26" Id="Ls7uvUUiF4yP4Xf3kXXUoA">
+                  <p:NodeReference LastCategoryFullName="System.Logging.ILogger" LastDependency="VL.CoreLib.vl">
+                    <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                    <CategoryReference Kind="MutableInterfaceType" Name="ILogger" NeedsToBeDirectParent="true" />
+                    <Choice Kind="OperationCallFlag" Name="Log" />
+                  </p:NodeReference>
+                  <Pin Id="OlxK8fJFYilPfMu1Zq7fEw" Name="Input" Kind="StateInputPin" />
+                  <Pin Id="UuaWb9YslajPEytOZqmzRj" Name="Message" Kind="InputPin" DefaultValue="Thank you for using simpleclock!" />
+                  <Pin Id="CNbk3g7PMhbQZ49UhZGY1q" Name="Log Level" Kind="InputPin" />
+                  <Pin Id="E3urnGOmd0EOENnKXLXxlL" Name="Args" Kind="InputPin" />
+                  <Pin Id="RwH5DryJT69LR6oxUpTV8D" Name="Exception" Kind="InputPin" />
+                  <Pin Id="TjKW3oFiMlpMgnjptvcf1x" Name="Event Id" Kind="InputPin" />
+                </Node>
+              </Patch>
+            </Node>
+            <Node Bounds="555,522,132,104" Id="HwHCDv0z41RN9ojZE1DJUf">
+              <p:NodeReference LastCategoryFullName="Velopack.VelopackApp" LastDependency="Velopack.dll">
+                <Choice Kind="RegionFlag" Name="Region (Stateless)" Fixed="true" />
+                <CategoryReference Kind="AssemblyCategory" Name="VelopackApp" />
+                <Choice Kind="OperationCallFlag" Name="OnRestarted" />
+              </p:NodeReference>
+              <Pin Id="Ft4uHwUbcTVNFodb9AnM30" Name="Input" Kind="StateInputPin" />
+              <Pin Id="OinarUDd9gELBpZD2xgglh" Name="Output" Kind="StateOutputPin" />
+              <Pin Id="DkwzTdk7I6ZM7phjZc8vOI" Name="Result" Kind="OutputPin" />
+              <Patch Id="C1Bav3OuNsePQq1qi5TZTd" Name="Hook" ManuallySortedPins="true">
+                <Pin Id="OMq0DaSkZm0OzVVwpdfYuV" Name="Version" Kind="InputPin" />
+                <ControlPoint Id="DSI3XQYK0dCLNDHNyXYPEp" Bounds="629,530" />
+                <Node Bounds="567,580,105,26" Id="T9LJx01hV7oPUCfxJ5NS5o">
+                  <p:NodeReference LastCategoryFullName="System.Logging.ILogger" LastDependency="VL.CoreLib.vl">
+                    <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                    <CategoryReference Kind="MutableInterfaceType" Name="ILogger" NeedsToBeDirectParent="true" />
+                    <Choice Kind="OperationCallFlag" Name="Log" />
+                  </p:NodeReference>
+                  <Pin Id="J0hzlwrhW8CQZTJU1Daua7" Name="Input" Kind="StateInputPin" />
+                  <Pin Id="RT8qVijhBAUK9ijxeWCSBI" Name="Message" Kind="InputPin" DefaultValue="You're now running the latest version of simpleclock ({version}), thanks for updating!" />
+                  <Pin Id="Mwq8Q1AYzT8MiIbtEOzkWl" Name="Log Level" Kind="InputPin" />
+                  <Pin Id="GsvrdQyi88AObFJkBwI9mF" Name="Args" Kind="InputPin" />
+                  <Pin Id="NHzhFqaKGSHMFxJzqBhTeV" Name="Exception" Kind="InputPin" />
+                  <Pin Id="RtSZ9PPzHDyLXaotpjFqq0" Name="Event Id" Kind="InputPin" />
+                </Node>
+                <Node Bounds="627,551,39,19" Id="LW2JbORdUNjQKozAYjdkej">
+                  <p:NodeReference LastCategoryFullName="Collections.Spread" LastDependency="VL.CoreLib.vl">
+                    <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                    <CategoryReference Kind="RecordType" Name="Spread" NeedsToBeDirectParent="true" />
+                    <Choice Kind="OperationCallFlag" Name="Cons" />
+                  </p:NodeReference>
+                  <Pin Id="MK8oo2TeHTPNEfuWGs90al" Name="Input" Kind="InputPin" />
+                  <Pin Id="P22nKJGwSyiNb78EFzskxF" Name="Result" Kind="OutputPin" />
+                </Node>
+              </Patch>
             </Node>
           </Canvas>
           <Patch Id="BjaECabj14FOT9F9lrcBrK" Name="Create" />
@@ -45,7 +108,13 @@
           <Patch Id="L0DNp473KJ7OPXSK3AO2OH" Name="Configure" ParticipatingElements="IjgTtlxldocMEPmMBeEgNR,VFOBT872qYQNcUczu0x0ib">
             <Pin Id="QX1lge1VfSKORl3HOUiUzG" Name="App Host" Kind="InputPin" />
           </Patch>
-          <Link Id="GELn7VGqdyGLr4hYi1MHGg" Ids="PuUhIIhg8skQbI2b6VS1KF,KewF9jgLyrOPV1V6Dp760b" />
+          <Link Id="NJ4qxESE8faNTddvKjmCZo" Ids="RXdradREJ00Ne5Six4X6Fa,K4sDvyAbEEWNy4Euetvoem" IsHidden="true" />
+          <Link Id="E6NBivOYLxEMhzV0Pwkkoi" Ids="PuUhIIhg8skQbI2b6VS1KF,IVgyq1Vd8piQBo47nbiskJ" />
+          <Link Id="RihTafmLYHRM9PoMbNwgSS" Ids="OMq0DaSkZm0OzVVwpdfYuV,DSI3XQYK0dCLNDHNyXYPEp" IsHidden="true" />
+          <Link Id="LKVYXvIr5aUOPjeIYA5wRK" Ids="LKcqR6Z4HJsO7KXIwth0bZ,Ft4uHwUbcTVNFodb9AnM30" />
+          <Link Id="Q9eulDMaQVfPg7sqKqI0U0" Ids="OinarUDd9gELBpZD2xgglh,KewF9jgLyrOPV1V6Dp760b" />
+          <Link Id="JtFUOzdKVFYMGpD026aQrG" Ids="DSI3XQYK0dCLNDHNyXYPEp,MK8oo2TeHTPNEfuWGs90al" />
+          <Link Id="PLc4XChi8HkQbLbEtXzn2t" Ids="P22nKJGwSyiNb78EFzskxF,GsvrdQyi88AObFJkBwI9mF" />
         </Patch>
       </Node>
       <!--
@@ -706,4 +775,5 @@
   <NugetDependency Id="P2XrSQqWI6tOP4jZRq2r14" Location="VL.ImGui" Version="2025.7.2" />
   <NugetDependency Id="QDbcWWGrAe4OH3jCaLmajR" Location="VL.ImGui.Skia" Version="2025.7.2" />
   <NugetDependency Id="PeLqFg5GwxELndAZUNis0W" Location="VL.LogView" Version="2025.7.2" />
+  <NugetDependency Id="T7LAaR3jepoMb9alGuOsFP" Location="System.Management.Automation" Version="7.4.17" />
 </Document>

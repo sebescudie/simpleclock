@@ -12,6 +12,7 @@ using Nuke.Common.Tooling;
 using Nuke.Common.Utilities.Collections;
 using static Nuke.Common.EnvironmentInfo;
 using static Nuke.Common.IO.PathConstruction;
+using _build;
 
 class Build : NukeBuild
 {
@@ -49,7 +50,12 @@ class Build : NukeBuild
         .Before(RetrieveVersion)
         .Executes(() =>
         {
+            Log.Information("Ensure vvvv output dir and Velopack releases dir are empty");
+            // Clear vvvv output folder
+            Utils.EnsureCleanDirectory(VvvvOutputDir);
 
+            // Clear Velopack reealases directory
+            Utils.EnsureCleanDirectory(ReleasesFolder);
         });
 
     Target Restore => _ => _

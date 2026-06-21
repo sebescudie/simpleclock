@@ -252,15 +252,7 @@
                     </p:NodeReference>
                     <Pin Id="A82I4Qu1om2QHsLPOWfNc8" Name="Now" Kind="OutputPin" />
                   </Node>
-                  <Node Bounds="564,260,101,26" Id="KTi4StKbq5xNkGLGJ8PWUV">
-                    <p:NodeReference LastCategoryFullName="System.DateTime" LastDependency="VL.CoreLib.vl">
-                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                      <Choice Kind="OperationCallFlag" Name="ToShortTimeString" />
-                    </p:NodeReference>
-                    <Pin Id="HpoiKTCjer9QSWirzphEi9" Name="Input" Kind="StateInputPin" />
-                    <Pin Id="H0bsaafxcl3O60JOoJ7eeg" Name="Result" Kind="OutputPin" />
-                  </Node>
-                  <Node Bounds="504,320,105,19" Id="KTyyXTCSoPbNJRvAVtWR3G">
+                  <Node Bounds="504,380,105,19" Id="KTyyXTCSoPbNJRvAVtWR3G">
                     <p:NodeReference LastCategoryFullName="Graphics.Skia.Layers.Text" LastDependency="VL.Skia.vl">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                       <Choice Kind="ProcessAppFlag" Name="Text" />
@@ -275,7 +267,15 @@
                     <Pin Id="KWEYIqulM0MPGLH6qzrvOg" Name="Output" Kind="OutputPin" />
                     <Pin Id="G2fAqKAZyAHLzwdxvENZ0t" Name="Baseline Position" Kind="OutputPin" />
                   </Node>
-                  <ControlPoint Id="UVFIkQKuwR2MeQA2CqGvih" Bounds="506,380" />
+                  <ControlPoint Id="UVFIkQKuwR2MeQA2CqGvih" Bounds="506,440" />
+                  <Node Bounds="564,290,100,26" Id="EH2FkQWcoPEPx0Fz3z62I6">
+                    <p:NodeReference LastCategoryFullName="System.DateTime" LastDependency="VL.CoreLib.vl">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationCallFlag" Name="ToLongTimeString" />
+                    </p:NodeReference>
+                    <Pin Id="KLfBc9B42iLM2TKOsbAn0c" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="LBRqXXEd8psPEZYWTTbiyK" Name="Result" Kind="OutputPin" />
+                  </Node>
                 </Canvas>
                 <Patch Id="FKNOqUD6DQAMSVGPsvYSXi" Name="Create" />
                 <Patch Id="Tfu5FK2PBcTQQ3CpBYdWbK" Name="Update">
@@ -285,10 +285,10 @@
                   <Fragment Id="Fw5lIMnAnqSPZrV0OoRR4N" Patch="FKNOqUD6DQAMSVGPsvYSXi" Enabled="true" />
                   <Fragment Id="PyxsgpW36UDPFFmts8CCvn" Patch="Tfu5FK2PBcTQQ3CpBYdWbK" Enabled="true" />
                 </ProcessDefinition>
-                <Link Id="TBdh51Lj6PBLbpXHykcyiO" Ids="A82I4Qu1om2QHsLPOWfNc8,HpoiKTCjer9QSWirzphEi9" />
-                <Link Id="EQzftvG7gegOyi9By2yJqe" Ids="H0bsaafxcl3O60JOoJ7eeg,Pth9vBGzdMHNCeWhNV0YL1" />
                 <Link Id="UrXwkxpAAHhMoTXGn2bWC8" Ids="KWEYIqulM0MPGLH6qzrvOg,UVFIkQKuwR2MeQA2CqGvih" />
                 <Link Id="FKeNwRFD7kJQKiElxSrjd2" Ids="UVFIkQKuwR2MeQA2CqGvih,DmMwGc9GHfNMl9emH3wmbk" IsHidden="true" />
+                <Link Id="BPCSuRiup8ILQsP5YvFgFb" Ids="A82I4Qu1om2QHsLPOWfNc8,KLfBc9B42iLM2TKOsbAn0c" />
+                <Link Id="HQ4mRBh40YyPsBlVgKP0VR" Ids="LBRqXXEd8psPEZYWTTbiyK,Pth9vBGzdMHNCeWhNV0YL1" />
               </Patch>
             </Node>
             <Node Bounds="546,274,196,256" Id="DOEQUoXMmnwOqoy7JXkyU0">
@@ -585,7 +585,7 @@
                 <Choice Kind="ProcessAppFlag" Name="Renderer" />
               </p:NodeReference>
               <Pin Id="FhBjEScMVRwLCsedHs4KBV" Name="Node Context" Kind="InputPin" IsHidden="true" />
-              <Pin Id="Jd0T5vnBfSuPgOnNeWJQoc" Name="Bounds" Kind="InputPin" DefaultValue="886, 88, 683, 868" IsHidden="true" />
+              <Pin Id="Jd0T5vnBfSuPgOnNeWJQoc" Name="Bounds" Kind="InputPin" DefaultValue="1358, 126, 683, 868" IsHidden="true" />
               <Pin Id="O7fiZdutUxAOdNfF58Uuc1" Name="Save Bounds" Kind="InputPin" IsHidden="true" />
               <Pin Id="Vxak8ihCVuMO8DhMWATLtI" Name="Bound to Document" Kind="InputPin" IsHidden="true" />
               <Pin Id="CZKueAEIytcNRX836gmsBZ" Name="Dialog If Document Changed" Kind="InputPin" IsHidden="true" />

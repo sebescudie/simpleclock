@@ -91,7 +91,7 @@ class Build : NukeBuild
         {
             // Download the previous release
             Log.Information("Downloading previous release");
-            var downloadPreviousRelease = ProcessTasks.StartProcess("vpk", $"download github --repoUrl {repoUrl} --token {githubToken}");
+            var downloadPreviousRelease = ProcessTasks.StartProcess("vpk", $"download github --repoUrl {repoUrl} --outputDir {ReleasesFolder} --token {githubToken}");
             downloadPreviousRelease.WaitForExit();
 
             // Pack the current one
